@@ -32,7 +32,7 @@ import { map } from '../pluggins/map'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  map();
+  map;
 
 
 });
