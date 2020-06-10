@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.0)), url(https://res.cloudinary.com/dxm0jgohk/image/upload/v1591696022/ParcelR/photo_home_page_iy59xx.jpg);">
+  <div class="banner-elements">
+    <h1>Bienvenue sur ParcelR</h1>
+    <p>Toutes les informations sur votre parcelle</p>
+    <div class="search-bar">
+      <%= form_tag root_path, class: "form-inline", method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mr-sm-2",
+          id: "address_input",
+          placeholder: "Entrée votre adresse"
+        %>
+        <%= submit_tag "Rechercher", class: "btn btn-primary my-2 my-sm-0" %>
+      <% end %>
+    </div>
+  </div>
+</div>
