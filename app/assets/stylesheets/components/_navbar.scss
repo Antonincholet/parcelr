@@ -8,5 +8,10 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 250px;
+}
+
+.navbar {
+  background: radial-gradient(circle, rgba(65,116,136,1) 60%, rgba(255,255,255,0) 100%) left bottom no-repeat;
+  background-size:100% 1px;
 }
