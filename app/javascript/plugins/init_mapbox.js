@@ -147,7 +147,7 @@ const mapElement = document.getElementById('map');
 
     map.on('click', function(e) {
           console.log('A click event has occurred at ' + e.lngLat);
-          fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
+          fetch(`https://apicarto.ign.fr/${GEOPORTAIL_API_KEY}/cadastre/parcelle?geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
             .then(response => response.json())
             .then((data) => {
               geojsonPolygon.geometry.coordinates = data.features[0].geometry.coordinates[0]
