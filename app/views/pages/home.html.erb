@@ -3,14 +3,14 @@
     <h1>Bienvenue sur ParcelR</h1>
     <p>Toutes les informations sur votre parcelle</p>
     <div class="search-bar">
-      <%= form_tag root_path, class: "form-inline", method: :get do %>
+      <%= form_tag map_path, class: "form-inline col-sm-8", method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control mr-sm-2",
           id: "address_input",
-          placeholder: "Entrée votre adresse"
+          placeholder: "Entrez votre adresse"
         %>
-        <%= submit_tag "Rechercher", class: "btn btn-primary my-2 my-sm-0" %>
+        <%= submit_tag "Rechercher", class: "button my-2 my-sm-0" %>
       <% end %>
     </div>
   </div>

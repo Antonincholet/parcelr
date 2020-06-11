@@ -1,2 +1,12 @@
-
- <div id="map"></div>
+<div class="search-bar">
+  <%= form_tag map_path, class: "form-inline col-sm-8", method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control mr-sm-2",
+      id: "address_input",
+      placeholder: "Entrez votre adresse"
+    %>
+    <%= submit_tag "Rechercher", class: "button my-2 my-sm-0" %>
+  <% end %>
+</div>
+<div id="map"></div>
