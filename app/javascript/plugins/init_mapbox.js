@@ -9,13 +9,13 @@ const initMapbox = () => {
     mapboxgl.accessToken = API_KEY;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v10',
       zoom: 17,
       center: [ 2.34832605,48.86661848]
     });
 
     map.on('load', function() {
-      map.addSource('wms-test-source', {
+      map.addSource('wmts-geoportail', {
         'type': 'raster',
         'tiles': [
           'https://wxs.ign.fr/ppjma0ufmaux7dypz4xxi99j/geoportail/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=CADASTRALPARCELS.PARCELLAIRE_EXPRESS&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}&STYLE=PCI vecteur&FORMAT=image/png'
@@ -24,9 +24,9 @@ const initMapbox = () => {
       });
       map.addLayer(
         {
-        'id': 'wms-test-layer',
+        'id': 'wmts-geoportail',
         'type': 'raster',
-        'source': 'wms-test-source',
+        'source': 'wmts-geoportail',
         'paint': {}
          },
         'waterway-label'
@@ -34,7 +34,7 @@ const initMapbox = () => {
     });
 
     map.on('load', function() {
-        map.addSource('maine', {
+        map.addSource('selected-parcel', {
         'type': 'geojson',
         'data': {
         'type': 'Feature',
@@ -132,9 +132,9 @@ const initMapbox = () => {
         }
         });
         map.addLayer({
-        'id': 'maine',
+        'id': 'selected-parcel',
         'type': 'fill',
-        'source': 'maine',
+        'source': 'selected-parcel',
         'layout': {},
         'paint': {
         'fill-color': '#088',
