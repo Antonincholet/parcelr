@@ -1,0 +1,40 @@
+<div class="container">
+  <h3 class="head text-center">Welcome to ParcelR<sup>™</sup> <span style="color:#f48260;">♥</span></h3>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myPDF">PDF Demand</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myPDF" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Demande de Certificat d'Urbanisme</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+
+        <div class="modal-body">
+          <h3 class="head text-center">Welcome to ParcelR<sup>™</sup> <span style="color:#f48260;">♥</span></h3>
+          <iframe src=<%= @certificate.certificate_pdf %>, width: 600, height: 780 style="border: none;"> </iframe>
+
+
+        <div class="modal-footer">
+          <button href="" class="btn btn-info">
+            Send Demand
+            <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/>
+            </svg>
+          </button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close<span class="glyphicon glyphicon-remove-sign"></span></button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
