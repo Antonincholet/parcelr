@@ -1,1 +1,45 @@
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.0)), url(https://res.cloudinary.com/dxm0jgohk/image/upload/v1591696022/ParcelR/photo_home_page_iy59xx.jpg);">
+  <div class="banner-elements">
+    <h1>Bienvenue sur ParcelR</h1>
+    <p>Toutes les informations sur votre parcelle</p>
+    <div class="search-bar">
+      <%= form_tag root_path, class: "form-inline", method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mr-sm-2",
+          id: "address_input",
+          placeholder: "Entrée votre adresse"
+        %>
+        <%= submit_tag "Rechercher", class: "btn btn-primary my-2 my-sm-0" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<h4 class="text-center p-5">Grâce à ParcelR, demandez votre certicat d’urbanisme en quelques clics</h4>
+<div class="cards">
+  <div class="card">
+    <%= image_tag "undraw_map_1r69.png", alt: "map" %>
+    <p>Recherchez votre parcelle</p>
+  </div>
+  <div class="card">
+    <%= image_tag "undraw_certification_aif8.png", alt: "map" %>
+    <p>Complêtez vos informations</p>
+  </div>
+  <div class="card">
+    <%= image_tag "undraw_delivery_address_03n0.png", alt: "map" %>
+    <p>Envoyez votre demande de certificat d’urbanisme</p>
+  </div>
+</div>
+<div class="info-content">
+  <h4 class="subtitle">Le certificat d’urbanisme en quelques mots :</h4>
+  <p>Le certificat d’urbanisme vous permet d’obtenir de la part de votre mairie les informations suivantes :
+    <ul>
+      <li><i class="fas fa-angle-double-right"></i> les règles d'urbanisme applicables à votre terrain,</li>
+      <li><i class="fas fa-angle-double-right"></i> les limitations administratives au droit de propriété (servitudes d'utilité publique, droit de préemption, zone de protection dans le périmètre d'un monument historique...),</li>
+      <li><i class="fas fa-angle-double-right"></i> la liste des taxes et participations d'urbanisme</li>
+      <li><i class="fas fa-angle-double-right"></i> si le terrain peut être utilisé pour la réalisation de votre projet,</li>
+      <li><i class="fas fa-angle-double-right"></i> ou encore l'état des équipements publics (voies et réseaux) existants ou prévus, desservant le terrain.</li>
+    </ul>
+  </p>
+  <p id="sources"><a href="https://www.service-public.fr/particuliers/vosdroits/F1633" target="_blank">plus d’information sur service-public.fr</a></p>
+</div>
