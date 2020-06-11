@@ -1,20 +1,3 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.0)), url(https://res.cloudinary.com/dxm0jgohk/image/upload/v1591696022/ParcelR/photo_home_page_iy59xx.jpg);">
-  <div class="banner-elements">
-    <h1>Bienvenue sur ParcelR</h1>
-    <p>Toutes les informations sur votre parcelle</p>
-    <div class="search-bar">
-      <%= form_tag map_path, class: "form-inline col-sm-8", method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control mr-sm-2",
-          id: "address_input",
-          placeholder: "Entrez votre adresse"
-        %>
-        <%= submit_tag "Rechercher", class: "button my-2 my-sm-0" %>
-      <% end %>
-    </div>
-  </div>
-</div>
 <h4 class="text-center p-5">Grâce à ParcelR, demandez votre certicat d’urbanisme en quelques clics</h4>
 <div class="cards">
   <div class="card">
