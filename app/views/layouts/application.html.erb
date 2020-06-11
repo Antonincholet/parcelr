@@ -14,6 +14,7 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/banner' if @display_banner %>
 
     <div class="container main-page">
       <%= yield %>
