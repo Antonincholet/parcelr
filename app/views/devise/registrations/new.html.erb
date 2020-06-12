@@ -7,15 +7,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-
-          <div class="form-check form-check-inline mb-2">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="prefix" value="option1">
-            <label class="form-check-label" for="prefix">Mme.</label>
-          </div>
-          <div class="form-check form-check-inline mb-2">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="prefix" value="option2">
-            <label class="form-check-label" for="prefix">M.</label>
-          </div>
+          <%= f.input :prefix, as: :radio_buttons, collection: ["Mme.", "M."], wrapper: :vertical_collection_inline, label: "Civilité"%>
 
           <div class="form-row">
             <div class="form-goup col-sm-6">
@@ -45,7 +37,7 @@
           </div>
 
           <%= f.input :email, placeholder: "pauldurand@monmail.fr", required: true, input_html: { autocomplete: "email" }%>
-          <%= f.input :phone, placeholder: "06 xx xx xx xx", required: true, input_html: { autocomplete: "email" }%>
+          <%= f.input :phone, placeholder: "06 xx xx xx xx" %>
 
           <div class="form-row">
             <div class="form-goup col-sm-6">
