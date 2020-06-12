@@ -1,27 +1,72 @@
 <div class="container p-5">
-  <h2 class= "text-center">Sign up</h2>
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12 col-md-8">
+      <h2 class= "text-center mb-5">Créer votre compte</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
+        <div class="form-inputs">
+
+          <div class="form-check form-check-inline mb-2">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="prefix" value="option1">
+            <label class="form-check-label" for="prefix">Mme.</label>
+          </div>
+          <div class="form-check form-check-inline mb-2">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="prefix" value="option2">
+            <label class="form-check-label" for="prefix">M.</label>
+          </div>
+
+          <div class="form-row">
+            <div class="form-goup col-sm-6">
+              <%= f.input :last_name, label: "Nom", placeholder: "Durand", required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+            </div>
+            <div class="form-goup col-sm-6">
+              <%= f.input :first_name, label: "Prénom", placeholder: "Paul", required: true, input_html: { autocomplete: "email" }%>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-goup col-sm-3">
+              <%= f.input :street_number, label: "Numéro", placeholder: "167", required: true %>
+            </div>
+            <div class="form-goup col-sm-9">
+              <%= f.input :street, label: "Voie", placeholder: "route de la mairie", required: true %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-goup col-sm-6">
+              <%= f.input :zip_code, label: "Code postal", placeholder: "13002", required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+            </div>
+            <div class="form-goup col-sm-6">
+              <%= f.input :city, label: "Ville", placeholder: "Marseille", required: true, input_html: { autocomplete: "email" }%>
+            </div>
+          </div>
+
+          <%= f.input :email, placeholder: "pauldurand@monmail.fr", required: true, input_html: { autocomplete: "email" }%>
+          <%= f.input :phone, placeholder: "06 xx xx xx xx", required: true, input_html: { autocomplete: "email" }%>
+
+          <div class="form-row">
+            <div class="form-goup col-sm-6">
+              <%= f.input :password, required: true, label: "Mot de passe", placeholder: "••••••",
+                          hint: ("minimum #{@minimum_password_length} caractères" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class="form-goup col-sm-6">
+              <%= f.input :password_confirmation, label: "Confirmation", required: true, placeholder: "••••••",
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Valider mon compte", class: "button btn-block"%>
+          </div>
+        </div>
+
+      <% end %>
+
+      <%= render "devise/shared/links" %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+  </div>
 </div>
