@@ -8,13 +8,15 @@ const mapElement = document.getElementById('map');
 if (mapElement) { // only build a map if there's a div#map to inject into
   mapboxgl.accessToken = MAPBOX_API_KEY;
   const initialAddress = mapElement.dataset.initialaddress
-  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${initialAddress}.json?access_token=${MAPBOX_API_KEY}`)
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data);
-        const coordinates = {
-          lng: data.features[0].geometry.coordinates[0],
-          lat: data.features[0].geometry.coordinates[1]};
+
+  let coordinates = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${initialAddress}.json?access_token=${MAPBOX_API_KEY}`)
+                      .then(response => response.json())
+                      .then((data) => {
+                        console.log(data);
+                        let coordinates = {
+                        lng: data.features[0].geometry.coordinates[0],
+                        lat: data.features[0].geometry.coordinates[1]};
+                        return coordinates})
 
         const map = new mapboxgl.Map({
           container: 'map',
@@ -56,7 +58,30 @@ if (mapElement) { // only build a map if there's a div#map to inject into
           // }
           // });
         });
-      });
+
+        map.on('click', function(e) {
+              console.log('A click event has occurred at ' + e.lngLat);
+              fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
+                .then(response => response.json())
+                .then((data) => {
+                  geojsonPolygon.geometry.coordinates = data.features[0].geometry.coordinates[0]
+                  map.getSource('selected-parcel').setData(geojsonPolygon);
+
+                    map.getLayer({
+                    'id': 'selected-parcel',
+                    'type': 'fill',
+                    'source': 'selected-parcel',
+                    'layout': {},
+                    'paint': {
+                    'fill-color': '#088',
+                    'fill-opacity': 0.8
+                    }
+                    });
+                });
+            });
+
+
+      console.log(coordinates)
 
   let geojsonPolygon = {
                 'type': 'Feature',
@@ -155,26 +180,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
 
 
 
-    map.on('click', function(e) {
-          console.log('A click event has occurred at ' + e.lngLat);
-          fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
-            .then(response => response.json())
-            .then((data) => {
-              geojsonPolygon.geometry.coordinates = data.features[0].geometry.coordinates[0]
-              map.getSource('selected-parcel').setData(geojsonPolygon);
 
-                map.getLayer({
-                'id': 'selected-parcel',
-                'type': 'fill',
-                'source': 'selected-parcel',
-                'layout': {},
-                'paint': {
-                'fill-color': '#088',
-                'fill-opacity': 0.8
-                }
-                });
-            });
-        });
   }
 };
 
