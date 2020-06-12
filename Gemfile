@@ -34,10 +34,12 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+
 # FillablePDF is an extremely simple and lightweight utility that bridges iText and Ruby in order to fill out fillable PDF forms or extract field values from previously filled out PDF forms.
 gem 'fillable-pdf'
+gem 'geocoder'
 
-group :development, :test do
+group :development, :test do  
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

@@ -1,0 +1,26 @@
+.search-bar {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.form-inline {
+  flex-flow: nowrap;
+}
+
+.form-control {
+  border-radius: 50px;
+  border: solid 1px #1F3B4B;
+  height: 48px;
+}
+
+.form-inline > * {
+   margin:5px 5px;
+}
+
+#address_input {
+  width: 100%;
+}
