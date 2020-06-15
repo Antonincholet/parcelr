@@ -48,7 +48,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
              },
             'waterway-label'
                 );
-          const marker = new mapboxgl.Marker()
+          const marker = new mapboxgl.Marker({ "color": "#33778C" })
             .setLngLat([ coordinates.lng, coordinates.lat])
             .addTo(map);
 
@@ -75,6 +75,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
           'fill-opacity': 0.6
           }
           });
+          map.addControl(new mapboxgl.NavigationControl());
         });
 
         map.on('click', function(e) {
