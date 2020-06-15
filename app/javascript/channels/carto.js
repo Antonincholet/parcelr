@@ -7,7 +7,17 @@ const fetchCarto = (coordinates) => {
     .then((data) => {
       console.log(data)
     })
-data.Search.
+data.Search.forEach((result)) => {
+  console.log(result);
+  `<li>
+    ${result.address}
+    ${result.area}
+    ${result.parcel_number}
+    ${result.municipality}
+    ${result.urbanism}
+  </li>`
+  coordinates.insertAdjacentHTML("beforeend", )
+}
 };
 
 // 2. locate relevant data in document
