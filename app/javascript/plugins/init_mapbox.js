@@ -105,26 +105,29 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                 .then((data) => {
                   geojsonPolygon.geometry.coordinates = data.features[0].geometry.coordinates[0]
                   jsonProperties = data.features[0].properties
-                  debugger
                   map.getSource('selected-parcel').setData(geojsonPolygon);
 
-                    map.getLayer({
-                    'id': 'selected-parcel',
-                    'type': 'fill',
-                    'source': 'selected-parcel',
-                    'layout': {},
-                    'paint': {
-                    'fill-color': '#33778C',
-                    'fill-opacity': 0.6
-                    }
-                    });
+                  map.getLayer({
+                  'id': 'selected-parcel',
+                  'type': 'fill',
+                  'source': 'selected-parcel',
+                  'layout': {},
+                  'paint': {
+                  'fill-color': '#33778C',
+                  'fill-opacity': 0.6
+                  }
+                  });
 
+                  const geojsonArea = require('@mapbox/geojson-area');
+
+                  const area = parseInt(geojsonArea.geometry(geojsonPolygon.geometry));
+                  debugger
                   new mapboxgl.Popup()
                   .setLngLat(e.lngLat)
                   .setHTML(`<div style="text-align:center"><p>Parcelle n° <strong>${jsonProperties.section} ${jsonProperties.numero}</strong></p>
                     <form action="/parcel" method="get">
                     <input type="hidden" name="coordinates_input" value="${e.lngLat}">
-                    <input type="hidden" name="polygon_input" value="${geojsonPolygon.geometry.coordinates}">
+                    <input type="hidden" name="area_input" value="${area}">
                     <input type="hidden" name="city_input" value="${jsonProperties.nom_com}">
                     <input type="hidden" name="section_input" value="${jsonProperties.section}">
                     <input type="hidden" name="numero_input" value="${jsonProperties.numero}">

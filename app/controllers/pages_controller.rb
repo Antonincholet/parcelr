@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   def parcel
     @coordinates = params[:coordinates_input]
-    @polygon = params[:polygon_input]
+    @area = params[:area_input]
     @city = params[:city_input]
     @section = params[:section_input]
     @numero = params[:numero_input]
