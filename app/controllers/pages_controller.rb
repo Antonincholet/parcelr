@@ -8,4 +8,12 @@ class PagesController < ApplicationController
   def map
     @initial_address = params[:query]
   end
+
+  def parcel
+    @coordinates = params[:coordinates_input]
+    @polygon = params[:polygon_input]
+    @city = params[:city_input]
+    @section = params[:section_input]
+    @numero = params[:numero_input]
+  end
 end

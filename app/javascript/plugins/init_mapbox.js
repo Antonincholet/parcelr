@@ -123,10 +123,12 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                   .setLngLat(e.lngLat)
                   .setHTML(`<div style="text-align:center"><p>Parcelle n° <strong>${jsonProperties.section} ${jsonProperties.numero}</strong></p>
                     <form action="/parcel" method="get">
-                    <input type="hidden" id="coordinates_input" value="${e.lngLat}">
-                    <input type="hidden" id="polygon_input" value="${geojsonPolygon.geometry.coordinates}">
-                    <input type="hidden" id="coordinates_input" value="${jsonProperties}">
-                    <input type="submit" class="button my-2 my-sm-0"></form></div>`)
+                    <input type="hidden" name="coordinates_input" value="${e.lngLat}">
+                    <input type="hidden" name="polygon_input" value="${geojsonPolygon.geometry.coordinates}">
+                    <input type="hidden" name="city_input" value="${jsonProperties.nom_com}">
+                    <input type="hidden" name="section_input" value="${jsonProperties.section}">
+                    <input type="hidden" name="numero_input" value="${jsonProperties.numero}">
+                    <input type="submit" name="parcel_input" value="parcel_input" class="button my-2 my-sm-0"></form></div>`)
                   .addTo(map);
                 });
             });

@@ -15,15 +15,16 @@
               </tr>
               <tr>
                 <td>Numéro de parcelle</td>
-                <td></td>
+                <td><%= "#{@section} #{@numero}" %></td>
               </tr>
               <tr>
                 <td>Commune</td>
-                <td></td>
+                <td><%= "#{@city}" %></td>
               </tr>
               <tr>
                 <td>Donnés d'urbanisme</td>
-                <td></td>
+                <td><%= "#{@polygon}" %></td>
+                <td><%= @coordinates %></td>
               </tr>
             </tbody>
           </table>
