@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def map
+    @initial_address = params[:query]
   end
 end
