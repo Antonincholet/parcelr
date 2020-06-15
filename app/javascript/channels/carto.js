@@ -4,20 +4,14 @@ const results = document.querySelector(#results);
 // 1. fetch html using API key
 const fetchCarto = (coordinates) => {
   fetch(`https://apicarto.ign.fr/api/gpu/municipality?geom=${coordinates}`)
+  rnu = features[0].properties.is_rnu
     .then(response => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data.rnu)
     })
-data.Search.forEach((result)) => {
-  console.log(result);
-  results.insertAdjacentHTML("beforeend",
-  `<ul>
-    ${result.address}
-    ${result.area}
-    ${result.parcel_number}
-    ${result.municipality}
-    ${result.urbanism}
-  </ul>`);
+
+document.findElement => {
+  rnu.insertAdjacentHTML("beforeend", #urbanism);
   };
 };
 
