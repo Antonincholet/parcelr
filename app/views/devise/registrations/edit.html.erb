@@ -63,11 +63,9 @@
               <div class="col-xs-12 col-md-10">
                 <%= f.input :current_password,
                             label: "Mot de passe actuel",
-                            hint: "saisir votre mot de passe actuel afin de la modifier",
                             required: false,
                             input_html: { autocomplete: "current-password" } %>
                 <%= f.input :password,
-                            hint: "laissez le champ vide si vous ne voulez pas le changer",
                             label: "Nouveau mot de passe",
                             required: false,
                             input_html: { autocomplete: "new-password" } %>
@@ -85,7 +83,7 @@
         </div>
       <% end %>
 
-      <%= link_to "Retour", :back %>
+      <%= link_to "Retour", :back, class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>
