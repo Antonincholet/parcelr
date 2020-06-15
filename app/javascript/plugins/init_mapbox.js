@@ -15,7 +15,6 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                   'coordinates':[]
                   }
                 }
-
   fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${initialAddress}.json?access_token=${MAPBOX_API_KEY}`)
     .then(response => response.json())
     .then((data) => {
@@ -49,6 +48,9 @@ if (mapElement) { // only build a map if there's a div#map to inject into
              },
             'waterway-label'
                 );
+          const marker = new mapboxgl.Marker()
+            .setLngLat([ coordinates.lng, coordinates.lat])
+            .addTo(map);
 
           fetch(`https://apicarto.ign.fr/api/cadastre/division?geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
                           .then(response => response.json())
@@ -69,8 +71,8 @@ if (mapElement) { // only build a map if there's a div#map to inject into
           'source': 'selected-parcel',
           'layout': {},
           'paint': {
-          'fill-color': '#088',
-          'fill-opacity': 0.8
+          'fill-color': '#33778C',
+          'fill-opacity': 0.6
           }
           });
         });
@@ -89,8 +91,8 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                     'source': 'selected-parcel',
                     'layout': {},
                     'paint': {
-                    'fill-color': '#088',
-                    'fill-opacity': 0.8
+                    'fill-color': '#33778C',
+                    'fill-opacity': 0.6
                     }
                     });
                 });
