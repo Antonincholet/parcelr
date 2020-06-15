@@ -6,12 +6,12 @@
           <table>
             <tbody>
               <tr>
-                <td>Addresse</td>
-                <td></td>
+                <td>Adresse</td>
+                <td><%= "#{@address["address"]["house_number"]} #{@address["address"]["road"]}, #{@address["address"]["postcode"]} #{@address["address"]["city"]}" %></td>
               </tr>
               <tr>
                 <td>Superficie</td>
-                <td></td>
+                <td><%= "#{@area} mètres carrés" %></td>
               </tr>
               <tr>
                 <td>Numéro de parcelle</td>
@@ -23,7 +23,6 @@
               </tr>
               <tr>
                 <td>Donnés d'urbanisme</td>
-                <td><%= "#{@area} mètres carrés" %></td>
                 <td><%= @coordinates %></td>
               </tr>
             </tbody>

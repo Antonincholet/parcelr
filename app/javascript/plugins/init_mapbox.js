@@ -126,7 +126,8 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                   .setLngLat(e.lngLat)
                   .setHTML(`<div style="text-align:center"><p>Parcelle n° <strong>${jsonProperties.section} ${jsonProperties.numero}</strong></p>
                     <form action="/parcel" method="get">
-                    <input type="hidden" name="coordinates_input" value="${e.lngLat}">
+                    <input type="hidden" name="lng_input" value="${e.lngLat.lng}">
+                    <input type="hidden" name="lat_input" value="${e.lngLat.lat}">
                     <input type="hidden" name="area_input" value="${area}">
                     <input type="hidden" name="city_input" value="${jsonProperties.nom_com}">
                     <input type="hidden" name="section_input" value="${jsonProperties.section}">
