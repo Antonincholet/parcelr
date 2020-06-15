@@ -1,7 +1,7 @@
 <div class="container p-5">
   <div class="row justify-content-md-center">
     <div class="col-xs-12 col-md-10">
-      <h2 class= "text-center mb-5">Modifier mon compte <%= resource_name.to_s.humanize %></h2>
+      <h2 class= "text-center mb-5">Modifier mon compte</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
@@ -21,19 +21,53 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <p class="devise_link">
-            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Modifier mon mot de passe
+          <p class="devise_link d-flex justify-content-around">
+            <a data-toggle="collapse" href="#changecoordinates" role="button" aria-expanded="false" aria-controls="changecoordinates">
+              Modifier mes coordonnées <i class="fas fa-caret-square-down"></i>
+            </a>
+            <a data-toggle="collapse" href="#changepassword" role="button" aria-expanded="false" aria-controls="changepassword">
+              Modifier mon mot de passe <i class="fas fa-caret-square-down"></i>
             </a>
           </p>
-          <div class="collapse" id="collapseExample">
+          <div class="collapse" id="changecoordinates">
+            <div class="row justify-content-md-center">
+              <div class="col-xs-12 col-md-10">
+                <div class="form-inputs">
+                  <%= f.input :prefix, as: :radio_buttons, collection: ["Mme.", "M."], wrapper: :vertical_collection_inline, label: "Civilité"%>
+
+                  <div class="form-row">
+                    <div class="form-goup col-sm-3">
+                      <%= f.input :street_number, label: "Numéro", required: true %>
+                    </div>
+                    <div class="form-goup col-sm-9">
+                      <%= f.input :street, label: "Voie", required: true %>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-goup col-sm-6">
+                      <%= f.input :zip_code, label: "Code postal", required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+                    </div>
+                    <div class="form-goup col-sm-6">
+                      <%= f.input :city, label: "Ville", required: true, input_html: { autocomplete: "email" }%>
+                    </div>
+                  </div>
+
+                  <%= f.input :phone %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapse" id="changepassword">
             <div class="row justify-content-md-center">
               <div class="col-xs-12 col-md-10">
                 <%= f.input :current_password,
                             label: "Mot de passe actuel",
-                            required: true,
+                            hint: "saisir votre mot de passe actuel afin de la modifier",
+                            required: false,
                             input_html: { autocomplete: "current-password" } %>
                 <%= f.input :password,
+                            hint: "laissez le champ vide si vous ne voulez pas le changer",
                             label: "Nouveau mot de passe",
                             required: false,
                             input_html: { autocomplete: "new-password" } %>
@@ -46,8 +80,8 @@
           </div>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Mettre à jour" %>
+        <div class="form-actions text-center pt-5">
+          <%= f.button :submit, "Mettre à jour", class: "button"%>
         </div>
       <% end %>
 
