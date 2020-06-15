@@ -2,9 +2,9 @@
 const coordinates = {"type": "Point","coordinates":[-1.691634,48.104237]};
 const results = document.querySelector(#results);
 // 1. fetch html using API key
-const fetchCarto = (coordinates) => {
+const fetchUrban = (coordinates) => {
   fetch(`https://apicarto.ign.fr/api/gpu/municipality?geom=${coordinates}`)
-  rnu = features[0].properties.is_rnu
+  rnu = features[0].properties.is_rnu;
     .then(response => response.json())
     .then((data) => {
       console.log(data.rnu)

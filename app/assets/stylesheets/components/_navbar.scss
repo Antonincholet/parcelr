@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 85px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +15,12 @@
 .navbar {
   background: radial-gradient(circle, rgba(65,116,136,1) 60%, rgba(255,255,255,0) 100%) left bottom no-repeat;
   background-size:100% 1px;
+}
+
+.whitefont {
+  color: white !important;
+  opacity: 0.8 !important;
+  &:hover {
+    opacity: 1 !important;
+  }
 }

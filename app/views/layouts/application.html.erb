@@ -7,6 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src=https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js></script>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= favicon_link_tag asset_path('favicon_parcelr.png') %>
@@ -14,12 +15,13 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/banner' if @display_banner %>
 
     <div class="container main-page">
       <%= yield %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<!--     <p class="notice">%= notice %></p>
+    <p class="alert">%= alert %></p> -->
 
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>

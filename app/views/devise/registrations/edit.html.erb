@@ -1,35 +1,89 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container p-5">
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12 col-md-10">
+      <h2 class= "text-center mb-5">Modifier mon compte</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+        <div class="form-inputs">
+          <div class="form-row">
+            <div class="form-goup col-sm-6">
+              <%= f.input :last_name, label: "Nom", required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+            </div>
+            <div class="form-goup col-sm-6">
+              <%= f.input :first_name, label: "Prénom", required: true, input_html: { autocomplete: "email" }%>
+            </div>
+          </div>
+          <%= f.input :email, required: true %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+          <p class="devise_link d-flex justify-content-around">
+            <a data-toggle="collapse" href="#changecoordinates" role="button" aria-expanded="false" aria-controls="changecoordinates">
+              Modifier mes coordonnées <i class="fas fa-caret-square-down"></i>
+            </a>
+            <a data-toggle="collapse" href="#changepassword" role="button" aria-expanded="false" aria-controls="changepassword">
+              Modifier mon mot de passe <i class="fas fa-caret-square-down"></i>
+            </a>
+          </p>
+          <div class="collapse" id="changecoordinates">
+            <div class="row justify-content-md-center">
+              <div class="col-xs-12 col-md-10">
+                <div class="form-inputs">
+                  <%= f.input :prefix, as: :radio_buttons, collection: ["Mme.", "M."], wrapper: :vertical_collection_inline, label: "Civilité"%>
+
+                  <div class="form-row">
+                    <div class="form-goup col-sm-3">
+                      <%= f.input :street_number, label: "Numéro", required: true %>
+                    </div>
+                    <div class="form-goup col-sm-9">
+                      <%= f.input :street, label: "Voie", required: true %>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-goup col-sm-6">
+                      <%= f.input :zip_code, label: "Code postal", required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+                    </div>
+                    <div class="form-goup col-sm-6">
+                      <%= f.input :city, label: "Ville", required: true, input_html: { autocomplete: "email" }%>
+                    </div>
+                  </div>
+
+                  <%= f.input :phone %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapse" id="changepassword">
+            <div class="row justify-content-md-center">
+              <div class="col-xs-12 col-md-10">
+                <%= f.input :current_password,
+                            label: "Mot de passe actuel",
+                            required: false,
+                            input_html: { autocomplete: "current-password" } %>
+                <%= f.input :password,
+                            label: "Nouveau mot de passe",
+                            required: false,
+                            input_html: { autocomplete: "new-password" } %>
+                <%= f.input :password_confirmation,
+                            label: "Confirmer le mot de passe",
+                            required: false,
+                            input_html: { autocomplete: "new-password" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions text-center pt-5">
+          <%= f.button :submit, "Mettre à jour", class: "button"%>
+        </div>
+      <% end %>
+
+      <%= link_to "Retour", :back, class: "btn btn-outline-secondary" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
