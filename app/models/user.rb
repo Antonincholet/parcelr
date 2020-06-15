@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :certificate_requests, dependent: :destroy
+
+  validates :last_name, :first_name, :prefix, :street_number, :street, :zip_code, :city, presence: true
 end
