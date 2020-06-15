@@ -50,7 +50,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
             'waterway-label'
                 );
 
-          fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
+          fetch(`https://apicarto.ign.fr/api/cadastre/division?geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
                           .then(response => response.json())
                           .then((data) => {
                             console.log(data)
