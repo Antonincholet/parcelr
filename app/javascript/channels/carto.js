@@ -1,5 +1,6 @@
 // extract data from API and display when parcel info page is loaded
-const coordinates = {"type": "Point","coordinates":[-1.691634,48.104237]}
+const coordinates = {"type": "Point","coordinates":[-1.691634,48.104237]};
+const results = document.querySelector(#results);
 // 1. fetch html using API key
 const fetchCarto = (coordinates) => {
   fetch(`https://apicarto.ign.fr/api/gpu/municipality?geom=${coordinates}`)
@@ -9,15 +10,15 @@ const fetchCarto = (coordinates) => {
     })
 data.Search.forEach((result)) => {
   console.log(result);
-  `<li>
+  results.insertAdjacentHTML("beforeend",
+  `<ul>
     ${result.address}
     ${result.area}
     ${result.parcel_number}
     ${result.municipality}
     ${result.urbanism}
-  </li>`
-  coordinates.insertAdjacentHTML("beforeend", )
-}
+  </ul>`);
+  };
 };
 
 // 2. locate relevant data in document
