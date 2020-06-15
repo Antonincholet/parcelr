@@ -132,7 +132,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                     <input type="hidden" name="city_input" value="${jsonProperties.nom_com}">
                     <input type="hidden" name="section_input" value="${jsonProperties.section}">
                     <input type="hidden" name="numero_input" value="${jsonProperties.numero}">
-                    <input type="submit" name="parcel_input" value="parcel_input" class="button my-2 my-sm-0"></form></div>`)
+                    <input type="submit" name="valider ma parcelle" value="valider ma parcelle" class="button my-2 my-sm-0"></form></div>`)
                   .addTo(map);
                 });
             });

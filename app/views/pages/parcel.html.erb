@@ -7,7 +7,7 @@
             <tbody>
               <tr>
                 <td>Adresse</td>
-                <td><%= "#{@address["address"]["house_number"]} #{@address["address"]["road"]}, #{@address["address"]["postcode"]} #{@address["address"]["city"]}" %></td>
+                <td><%= "#{@address["address"]["house_number"]} #{@address["address"]["road"]}, #{@address["address"]["postcode"]} #{@address["address"]["city"].upcase}" %></td>
               </tr>
               <tr>
                 <td>Superficie</td>
