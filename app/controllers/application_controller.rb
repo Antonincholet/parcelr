@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
                                                        :street, :zip_code, :city, :phone])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :prefix, :street_number,
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :first_name, :last_name, :prefix, :street_number,
                                                               :street, :zip_code, :city, :phone])
   end
 end
