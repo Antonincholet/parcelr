@@ -82,7 +82,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
 
         map.on('click', function(e) {
               console.log('A click event has occurred at ' + e.lngLat);
-              fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
+              fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?apikey=${GEOPORTAIL_API_KEY}&geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
                 .then(response => response.json())
                 .then((data) => {
                   geojsonPolygon.geometry.coordinates = data.features[0].geometry.coordinates[0]
