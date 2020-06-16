@@ -54,7 +54,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
             .setLngLat([ coordinates.lng, coordinates.lat])
             .addTo(map);
 
-          fetch(`https://apicarto.ign.fr/api/cadastre/division?geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
+          fetch(`https://apicarto.ign.fr/api/cadastre/division?apikey=${GEOPORTAIL_API_KEY}&geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
                           .then(response => response.json())
                           .then((data) => {
                             console.log(data)
