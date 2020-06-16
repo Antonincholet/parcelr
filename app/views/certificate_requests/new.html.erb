@@ -1,0 +1,19 @@
+<h1>Récapitulatif de votre demande de certification</h1>
+
+<h3>Vos informations :</h3>
+<ul>
+  <li><%= @user.prefix + ' ' + @user.last_name + ' ' + @user.first_name %> </li>
+  <li>Vos coordonnées :
+    <ul>
+      <li><%= @user.street_number + ' ' + @user.street %></li>
+      <li><%= @user.zip_code + ' ' + @user.city %></li>
+      <li>Email : <%= @user.email %></li>
+      <li>Téléphone : <%= @user.phone %></li>
+    </ul>
+  </li>
+</ul>
+<h3>Votre parcelle :</h3>
+
+
+
+
