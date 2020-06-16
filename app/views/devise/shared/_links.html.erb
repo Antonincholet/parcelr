@@ -11,8 +11,8 @@
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <div class="text-center p-5 devise_link">
-    <%= link_to "Nouveau sur ParcelR ? Créer votre compte", new_registration_path(resource_name) %><br />
+  <div class="text-center p-5 devise_link devise_new">
+    <%= link_to "Nouveau sur ParcelR ? Cliquez ici pour créer votre compte", new_registration_path(resource_name) %><br />
   </div>
 <% end %>
 
