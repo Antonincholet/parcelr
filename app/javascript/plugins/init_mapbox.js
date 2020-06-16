@@ -54,24 +54,6 @@ if (mapElement) { // only build a map if there's a div#map to inject into
             .setLngLat([ coordinates.lng, coordinates.lat])
             .addTo(map);
 
-          // class MyCustomControl {
-          //   onAdd(map){
-          //     this.map = map;
-          //     this.container = document.createElement('button');
-          //     this.container.className = 'button';
-          //     this.container.textContent = 'Valider';
-          //     return this.container;
-          //   }
-          //   onRemove(){
-          //     this.container.parentNode.removeChild(this.container);
-          //     this.map = undefined;
-          //   }
-          // }
-
-          // const myCustomControl = new MyCustomControl();
-
-          // map.addControl(myCustomControl);
-
           fetch(`https://apicarto.ign.fr/api/cadastre/division?geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
                           .then(response => response.json())
                           .then((data) => {
@@ -121,7 +103,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
                   const geojsonArea = require('@mapbox/geojson-area');
 
                   const area = parseInt(geojsonArea.geometry(geojsonPolygon.geometry));
-                  debugger
+
                   new mapboxgl.Popup()
                   .setLngLat(e.lngLat)
                   .setHTML(`<div style="text-align:center"><p>Parcelle n° <strong>${jsonProperties.section} ${jsonProperties.numero}</strong></p>
