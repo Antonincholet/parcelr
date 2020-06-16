@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@ignf-geoportal/sdk-2d": "^3.0.12",
+    "@mapbox/geojson-area": "^0.2.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",

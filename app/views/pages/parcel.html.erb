@@ -7,22 +7,23 @@
             <tbody>
               <tr>
                 <td>Adresse</td>
-                <td></td>
+                <td><%= "#{@address["address"]["house_number"]} #{@address["address"]["road"]}, #{@address["address"]["postcode"]} #{@address["address"]["city"].upcase}" %></td>
               </tr>
               <tr>
                 <td>Superficie</td>
-                <td></td>
+                <td><%= "#{@area} mètres carrés" %></td>
               </tr>
               <tr>
                 <td>Numéro de parcelle</td>
-                <td></td>
+                <td><%= "#{@section} #{@numero}" %></td>
               </tr>
               <tr>
                 <td>Commune</td>
-                <td></td>
+                <td><%= "#{@city}" %></td>
               </tr>
               <tr>
                 <td>Donnés d'urbanisme</td>
+                <td><%= @coordinates %></td>
                 <td id="urbanism"></td>
               </tr>
             </tbody>
