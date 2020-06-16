@@ -30,7 +30,11 @@
           </table>
         </div>
       <div>
-        <%= link_to "Générer ma demande", new_certificate_request_path, class: "btn btn-primary btn-block" %>
+        <%= link_to "Confirmer", new_certificate_request_path(:address => @address,
+                                                              :area => @area,
+                                                              :section => @section,
+                                                              :numero => @numero,
+                                                              :city => @city), class: "button" %>
       </div>
     </div>
   </div>
