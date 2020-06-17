@@ -22,6 +22,7 @@
 .main-page {
   min-height: 80vh;
 }
+
 .my-custom-control {
   color: #f00;
   background: #000;
@@ -29,4 +30,14 @@
   border-radius: 4px;
   margin: 8px;
 }
+
+.parcel-data td {
+  margin: 0px 20px;
+  padding: 5px 20px;
+}
+
+.parcel-data td:first-child {
+  font-weight: bolder;
+}
+
 
