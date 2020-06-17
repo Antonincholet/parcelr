@@ -1,6 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 const MAPBOX_API_KEY = process.env.MAPBOX_API_KEY;
-const GEOPORTAIL_API_KEY=process.env.GEOPORTAIL_API_KEY;
+const GEOPORTAIL_TILE_API_KEY=process.env.GEOPORTAIL_TILE_API_KEY;
+const GEOPORTAIL_REST_API_KEY=process.env.GEOPORTAIL_REST_API_KEY
 
 const initMapbox = () => {
 const mapElement = document.getElementById('map');
@@ -36,7 +37,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
           map.addSource('wmts-geoportail', {
             'type': 'raster',
             'tiles': [
-              `https://wxs.ign.fr/${GEOPORTAIL_API_KEY}/geoportail/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=CADASTRALPARCELS.PARCELLAIRE_EXPRESS&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}&STYLE=PCI vecteur&FORMAT=image/png`
+              `https://wxs.ign.fr/${GEOPORTAIL_TILE_API_KEY}/geoportail/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=CADASTRALPARCELS.PARCELLAIRE_EXPRESS&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}&STYLE=PCI vecteur&FORMAT=image/png`
               ],
             'tileSize': 256
           });
@@ -54,7 +55,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
             .setLngLat([ coordinates.lng, coordinates.lat])
             .addTo(map);
 
-          fetch(`https://apicarto.ign.fr/api/cadastre/division?geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
+          fetch(`https://apicarto.ign.fr/api/cadastre/division?apikey=${GEOPORTAIL_REST_API_KEY}&geom={"type": "Point","coordinates":[${coordinates.lng}, ${coordinates.lat}]}`)
                           .then(response => response.json())
                           .then((data) => {
                             console.log(data)
@@ -82,7 +83,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
 
         map.on('click', function(e) {
               console.log('A click event has occurred at ' + e.lngLat);
-              fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
+              fetch(`https://apicarto.ign.fr/api/cadastre/parcelle?apikey=${GEOPORTAIL_REST_API_KEY}&geom={"type": "Point","coordinates":[${e.lngLat.lng}, ${e.lngLat.lat}]}`)
                 .then(response => response.json())
                 .then((data) => {
                   geojsonPolygon.geometry.coordinates = data.features[0].geometry.coordinates[0]
