@@ -7,7 +7,7 @@
             <tbody>
               <tr>
                 <td>Adresse</td>
-                <td><%= "#{@address["address"]["house_number"]} #{@address["address"]["road"]}, #{@address["address"]["postcode"]} #{@address["address"]["city"].upcase}" %></td>
+                <td><%= "#{@address["address"]["house_number"]} #{@address["address"]["road"]}, #{@address["address"]["postcode"]} #{@city.upcase}" %></td>
               </tr>
               <tr>
                 <td>Superficie</td>
@@ -30,11 +30,12 @@
           </table>
         </div>
       <div>
-        <%= link_to "Confirmer", new_certificate_request_path(:address => @address,
+        <%= link_to "Retour", :back, class: "btn btn-outline-secondary mr-5" %>
+        <%= link_to "Confirmer parcelle", new_certificate_request_path(:address => @address,
                                                               :area => @area,
                                                               :section => @section,
                                                               :numero => @numero,
-                                                              :city => @city), class: "button" %>
+                                                              :city => @city), class: "ml-5 button button-link" %>
       </div>
     </div>
   </div>

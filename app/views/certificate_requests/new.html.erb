@@ -1,19 +1,27 @@
-<h1>Récapitulatif de votre demande de certification</h1>
+<div class="container p-5">
+  <h1>Récapitulatif de votre demande de certification</h1>
 
-<h3>Vos informations :</h3>
-<ul>
-  <li><%= @user.prefix + ' ' + @user.last_name + ' ' + @user.first_name %> </li>
-  <li>Vos coordonnées :
-    <ul>
-      <li><%= @user.street_number + ' ' + @user.street %></li>
-      <li><%= @user.zip_code + ' ' + @user.city %></li>
-      <li>Email : <%= @user.email %></li>
-      <li>Téléphone : <%= @user.phone %></li>
-    </ul>
-  </li>
-</ul>
-<h3>Votre parcelle :</h3>
-
-
-
-
+  <h3>Vos informations :</h3>
+  <ul>
+    <li><%= @user.prefix + ' ' + @user.last_name + ' ' + @user.first_name %> </li>
+    <li>Vos coordonnées :
+      <ul>
+        <li><%= @user.street_number + ' ' + @user.street %></li>
+        <li><%= @user.zip_code + ' ' + @user.city %></li>
+        <li>Email : <%= @user.email %></li>
+        <li>Téléphone : <%= @user.phone %></li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Votre parcelle :</h3>
+  <%= simple_form_for @certificate_request do |f| -%>
+      <%= f.input :parcel_street_number, label: "Numéro", :input_html => { :value => params["address"]["address"]["house_number"] } %>
+      <%= f.input :parcel_street, label: "Voie", :input_html => { :value => params["address"]["address"]["road"] } %>
+      <%= f.input :parcel_zip_code, label: "CP", :input_html => { :value => params["address"]["address"]["postcode"] } %>
+      <%= f.input :parcel_city, label: "Ville", :input_html => { :value => params["city"] } %>
+      <%= f.input :parcel_section, label: "Section", :input_html => { :value => params["section"] } %>
+      <%= f.input :parcel_number, label: "Numéro de parcelle", :input_html => { :value => params["numero"] } %>
+      <%= f.input :parcel_area, label: "Surface (en m2)", :input_html => { :value => params["area"] } %>
+      <%= f.button :submit, "Confirmer ma demande de certificat", class:"button" %>
+  <% end -%>
+</div>
