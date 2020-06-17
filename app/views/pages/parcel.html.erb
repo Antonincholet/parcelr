@@ -29,14 +29,14 @@
             </tbody>
           </table>
         </div>
-      <div>
-        <%= link_to "Retour", :back, class: "btn btn-outline-secondary mr-5" %>
+      <div class="text-center pt-2">
         <%= link_to "Confirmer parcelle", new_certificate_request_path(:address => @address,
                                                               :area => @area,
                                                               :section => @section,
                                                               :numero => @numero,
-                                                              :city => @city), class: "ml-5 button button-link" %>
+                                                              :city => @city), class: "button button-link" %>
       </div>
+      <%= link_to "Retour", :back, class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>
