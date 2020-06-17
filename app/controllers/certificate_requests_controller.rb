@@ -26,6 +26,9 @@ class CertificateRequestsController < ApplicationController
   end
 
   def certificate_params
-    params.require(:certificate_request).permit(:parcel_section, :parcel_number, :parcel_area, :parcel_address)
+    params.require(:certificate_request).permit(:parcel_street_number, :parcel_street,
+                                                :parcel_zip_code, :parcel_city,
+                                                :parcel_section, :parcel_number,
+                                                :parcel_area)
   end
 end
