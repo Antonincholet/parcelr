@@ -1,5 +1,5 @@
-# require 'json'
-# require 'open-uri'
+require 'json'
+require 'open-uri'
 require 'geocoder'
 
 class PagesController < ApplicationController
@@ -25,10 +25,12 @@ class PagesController < ApplicationController
   private
 
   def reverse_geocode(lng, lat)
-    results = Geocoder.search([lat, lng])
-    results.first.data
+    # results = Geocoder.search([lat, lng])
+    # results.first.data
+    url = "https://api-adresse.data.gouv.fr/reverse/?lon=#{lng}&lat=#{lat}"
+    address_serialized = open(url).read
+    address = JSON.parse(address_serialized)
+    return address["features"][0]["properties"]
   end
-  # url = 'https://api.github.com/users/ssaunier'
-  # user_serialized = open(url).read
-  # user = JSON.parse(user_serialized)
+
 end
