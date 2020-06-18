@@ -19,18 +19,18 @@
     <div class="form-inputs">
       <div class="form-row">
         <div class="form-goup col-sm-3">
-          <%= f.input :parcel_street_number, label: "Numéro", :input_html => { :value => params["address"]["address"]["house_number"] } %>
+          <%= f.input :parcel_street_number, label: "Numéro", :input_html => { :value => params["address"]["housenumber"] } %>
         </div>
         <div class="form-goup col-sm-9">
-          <%= f.input :parcel_street, label: "Voie", :input_html => { :value => params["address"]["address"]["road"] } %>
+          <%= f.input :parcel_street, label: "Voie", :input_html => { :value => params["address"]["street"] } %>
         </div>
       </div>
       <div class="form-row">
         <div class="form-goup col-sm-3">
-          <%= f.input :parcel_zip_code, label: "CP", :input_html => { :value => params["address"]["address"]["postcode"] } %>
+          <%= f.input :parcel_zip_code, label: "CP", :input_html => { :value => params["address"]["postcode"] } %>
         </div>
         <div class="form-goup col-sm-9">
-          <%= f.input :parcel_city, label: "Ville", :input_html => { :value => params["city"] } %>
+          <%= f.input :parcel_city, label: "Ville", :input_html => { :value => params["address"]["city"] } %>
         </div>
       </div>
       <div class="form-row">
