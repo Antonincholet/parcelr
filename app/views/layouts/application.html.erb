@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Parcelr</title>
+    <title>Parcelr, toutes les infos sur votre parcelle cadastrale</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,11 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= favicon_link_tag asset_path('favicon_parcelr.png') %>
+    <meta name="description" content="Parcelr, la nouvelle application web pour faire des démarches d'urbanisme">
+    <meta property="og:title" content="Parcelr, toutes les infos sur votre parcelle cadastrale">
+    <meta property="og:image" content="https://res.cloudinary.com/parcelr/image/upload/v1592482665/logo_parcelr_zxggau.png">
+    <meta property="og:description" content="Parcelr, la nouvelle application web pour faire des démarches d'urbanisme">
+
   </head>
 
   <body>
